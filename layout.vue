@@ -3,7 +3,7 @@
         <div id="top"></div>
         <div class="nav-wrapper" :class="{ 'navbar-fixed-top': $store.state.localConfig['liberty.fixed_navbar'] === true }">
             <nav class="navbar navbar-dark">
-                <nuxt-link class="navbar-brand" to="/">{{ $store.state.config['skin.liberty.navbar_logo_text'] }}</nuxt-link>
+                <nuxt-link class="navbar-brand" to="/">{{ $store.state.config['skin.jeoriga-liberty.navbar_logo_text'] }}</nuxt-link>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
                         <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></nuxt-link>
@@ -22,8 +22,6 @@
                                 </a>
                             </template>
                             <div class="dropdown-menu" role="menu">
-                                <nuxt-link to="/Upload" class="dropdown-item">파일 올리기</nuxt-link>
-                                <div class="dropdown-divider"></div>
                                 <nuxt-link to="/NeededPages" class="dropdown-item">작성이 필요한 문서</nuxt-link>
                                 <nuxt-link to="/OrphanedPages" class="dropdown-item">고립된 문서</nuxt-link>
                                 <nuxt-link to="/OrphanedCategories" class="dropdown-item">고립된 분류</nuxt-link>
@@ -33,6 +31,7 @@
                                 <nuxt-link to="/LongestPages" class="dropdown-item">내용이 긴 문서</nuxt-link>
                                 <nuxt-link to="/BlockHistory" class="dropdown-item">차단 내역</nuxt-link>
                                 <nuxt-link to="/RandomPage" class="dropdown-item">RandomPage</nuxt-link>
+                                <nuxt-link to="/Upload" class="dropdown-item">파일 올리기</nuxt-link>
                                 <nuxt-link to="/License" class="dropdown-item">라이선스</nuxt-link>
                                 <template v-if="$store.state.session.menus.length">
                                     <div class="dropdown-divider"></div>
@@ -157,7 +156,7 @@
                         <li v-else class="footer-info-lastmod">이 문서는 <local-date :date="$store.state.page.data.date" />에 마지막으로 편집되었습니다.</li>
                         <li class="footer-info-copyright" v-html="$store.state.page.data.copyright_text" />
                     </ul>
-                    <ul class="footer-places" @click="onDynamicContentClick($event)" v-html="$store.state.config['skin.liberty.footer_html'] || $store.state.config['wiki.footer_text']" />
+                    <ul class="footer-places" @click="onDynamicContentClick($event)" v-html="$store.state.config['skin.jeoriga-liberty.footer_html'] || $store.state.config['wiki.footer_text']" />
                     <ul class="footer-icons">
                         <li class="footer-poweredbyico">
                             <a href="//github.com/wjdgustn/thetree-skin-liberty" target="_blank">Liberty</a> | <a href="//github.com/wjdgustn/thetree" target="_blank">the tree</a>
@@ -201,6 +200,7 @@ import Dropdown from './components/dropdown';
 import SettingModal from './components/settingModal';
 import License from "raw-loader!./LICENSE";
 
+
 export default {
     mixins: [Common],
     components: {
@@ -219,9 +219,19 @@ export default {
         };
     },
     watch: {
+	'$store.state.page.viewName'(newVal) {
+	    console.log('🔍 watch triggered:', newVal)
+            this.$nextTick(() => this.updateNotFoundImage(newVal))
+        },
         $route() {
             this.isShowACLMessage = false;
         }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            // 초기 페이지 로드 시에도 실행되도록
+            this.updateNotFoundImage(this.$store.state.page.viewName)
+      })
     },
     head() {
         return {
@@ -230,23 +240,23 @@ export default {
     },
     computed: {
         brand_color() {
-            return this.selectByTheme(this.$store.state.config['skin.liberty.brand_color_1'] ?? '#4188f1', '#2d2f34');
+            return this.selectByTheme(this.$store.state.config['skin.jeoriga-liberty.brand_color_1'] ?? '#4188f1', '#2d2f34');
         },
         skinConfig() {
             return {
                 '--liberty-brand-color': this.brand_color,
-                '--liberty-brand-dark-color': this.selectByTheme(this.$store.state.config['skin.liberty.brand_dark_color_1'] ?? this.darkenColor(this.brand_color), '#16171a'),
-                '--liberty-brand-bright-color': this.selectByTheme(this.$store.state.config['skin.liberty.brand_bright_color_1'] ?? this.lightenColor(this.brand_color), '#383b40'),
-                '--liberty-navbar-logo-image': this.$store.state.config['skin.liberty.navbar_logo_image'] || (this.$store.state.config['wiki.logo_url'] && `url(${this.$store.state.config['wiki.logo_url']})`),
-                '--liberty-navbar-logo-minimum-width': this.$store.state.config['skin.liberty.navbar_logo_minimum_width'],
-                '--liberty-navbar-logo-width': this.$store.state.config['skin.liberty.navbar_logo_width'],
-                '--liberty-navbar-logo-size': this.$store.state.config['skin.liberty.navbar_logo_size'],
-                '--liberty-navbar-logo-padding': this.$store.state.config['skin.liberty.navbar_logo_padding'],
-                '--liberty-navbar-logo-margin': this.$store.state.config['skin.liberty.navbar_logo_margin'],
+                '--liberty-brand-dark-color': this.selectByTheme(this.$store.state.config['skin.jeoriga-liberty.brand_dark_color_1'] ?? this.darkenColor(this.brand_color), '#16171a'),
+                '--liberty-brand-bright-color': this.selectByTheme(this.$store.state.config['skin.jeoriga-liberty.brand_bright_color_1'] ?? this.lightenColor(this.brand_color), '#383b40'),
+                '--liberty-navbar-logo-image': this.$store.state.config['skin.jeoriga-liberty.navbar_logo_image'] || `url(${this.$store.state.config['wiki.logo_url']})`,
+                '--liberty-navbar-logo-minimum-width': this.$store.state.config['skin.jeoriga-liberty.navbar_logo_minimum_width'],
+                '--liberty-navbar-logo-width': this.$store.state.config['skin.jeoriga-liberty.navbar_logo_width'],
+                '--liberty-navbar-logo-size': this.$store.state.config['skin.jeoriga-liberty.navbar_logo_size'],
+                '--liberty-navbar-logo-padding': this.$store.state.config['skin.jeoriga-liberty.navbar_logo_padding'],
+                '--liberty-navbar-logo-margin': this.$store.state.config['skin.jeoriga-liberty.navbar_logo_margin'],
                 '--brand-color-1': 'var(--liberty-brand-color)',
-                '--brand-color-2': this.selectByTheme(this.$store.state.config['skin.liberty.brand_color_2'] ?? 'var(--liberty-brand-color)', 'var(--liberty-brand-color)'),
+                '--brand-color-2': this.selectByTheme(this.$store.state.config['skin.jeoriga-liberty.brand_color_2'] ?? 'var(--liberty-brand-color)', 'var(--liberty-brand-color)'),
                 '--brand-bright-color-1': 'var(--liberty-brand-bright-color)',
-                '--brand-bright-color-2': this.selectByTheme(this.$store.state.config['skin.liberty.brand_bright_color_2'] ?? 'var(--liberty-brand-bright-color)', 'var(--liberty-brand-bright-color)'),
+                '--brand-bright-color-2': this.selectByTheme(this.$store.state.config['skin.jeoriga-liberty.brand_bright_color_2'] ?? 'var(--liberty-brand-bright-color)', 'var(--liberty-brand-bright-color)'),
                 '--text-color': this.selectByTheme('#373a3c', '#ddd'),
                 '--article-background-color': this.selectByTheme('#fff', '#000'),
             };
@@ -256,6 +266,37 @@ export default {
         }
     },
     methods: {
+	updateNotFoundImage(viewName) {
+            const article = document.querySelector('.wiki-article')
+            const existing = document.querySelector('#notfound-watermark')
+
+            if (existing) existing.remove()
+
+            if (viewName === 'notfound' && article) {
+		article.style.position = 'relative';
+		article.style.height = '400px';
+                const count = 2 // notfound 이미지 개수
+                const randomNum = Math.floor(Math.random() * count) + 1
+                const randomSrc = `/notfound${randomNum}.png`
+                const alertBox = article.querySelector('.thetree-alert')
+		let imgElement = `<img id="notfound-watermark"
+                       src="/jeoriga.png"
+                       style="width: 300px; opacity: 0.4; right: 0px; padding-right: 10px; margin-right: 20px; z-index: 0; position: absolute; pointer-events:none;">`
+	        if (alertBox) {
+		    alertBox.insertAdjacentHTML(                                                                                               'afterend',
+                      imgElement
+                    )
+		} else {
+                    article.insertAdjacentHTML(
+                      'afterbegin',
+		      imgElement
+                    )
+		}
+	    } else {
+		    article.style.position = '';
+		    article.style.height = '';
+	    }
+        },
         showEditMessage() {
             if (this.isShowACLMessage) {
                 this.$router.push(this.doc_action_link(this.$store.state.page.data.document, this.requestable ? 'new_edit_request' : 'edit'));

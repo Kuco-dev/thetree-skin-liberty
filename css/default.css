@@ -708,3 +708,15 @@ div.scroll-buttons a {
 .scroll-buttons a:link, .scroll-buttons a:visited {
     color: white;
 }
+
+@keyframes name-gradient {
+  0% {
+    background-position-x: 0%;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0%;
+  }
+}
