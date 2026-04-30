@@ -75,13 +75,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 폰트(`fonts/`) / 이미지 / `LICENSE` / `.editorconfig` / `.gitignore` / `components/` / `layouts/` / `css/` 의 다른 파일 / `bootstrap.min.css` / `font-awesome.min.css` 등은 **원본과 동일** 합니다.
 
-## 외부 자산 의존
-
-본 브랜치의 코드가 참조하지만 저장소에는 포함되지 않은 정적 파일은 다음과 같습니다. 배포 환경에서 별도로 제공해야 합니다.
-
-- `/notfound1.png`
-- `/notfound2.png`
-
 ## 수정자 정보
 
 | 항목 | 값 |
