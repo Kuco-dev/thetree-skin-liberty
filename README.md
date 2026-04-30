@@ -47,7 +47,7 @@
 - 라이선스 전문: 저장소의 [`LICENSE`](./LICENSE) 파일 (원본 라이선스 파일을 그대로 보존)
 - GNU 공식 원문: <https://www.gnu.org/licenses/gpl-3.0.html>
 
-```
+```text
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
