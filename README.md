@@ -15,12 +15,8 @@
 > 즉, 저장소 자체가 GitHub 상에서 원본의 fork 로 표시되며(저장소 페이지의 "forked from wjdgustn/thetree-skin-liberty" 표기), 그 fork 안에서 `liberty` / `jeoriga-liberty` 두 작업 브랜치로 분기한 구조입니다.
 
 ## 개요
-<<<<<<< HEAD
-the seed의 Liberty 스킨을 the tree 엔진에서 사용할 수 있게 포팅하였습니다.
-=======
 
 `thetree` 위키 엔진용 Liberty 스킨의 커스터마이즈 버전입니다. 원본 스킨에 다음을 추가/변경하였습니다.
->>>>>>> a38b795 (Update README, CSS, and layout)
 
 - **404(notfound) 페이지 워터마크**: 존재하지 않는 문서에 진입했을 때 `.wiki-article` 영역에 워터마크 이미지를 자동 표시. `/notfound1.png` 또는 `/notfound2.png` 중에서 매번 랜덤 선택.
 - **드롭다운 메뉴 정렬 변경**: `파일 올리기` 항목을 메뉴 상단에서 `RandomPage`와 `라이선스` 사이로 이동.
@@ -28,10 +24,6 @@ the seed의 Liberty 스킨을 the tree 엔진에서 사용할 수 있게 포팅�
 - **`--liberty-navbar-logo-image` fallback 단순화**: `wiki.logo_url` 가드(`&&`)를 제거하여 코드 단순화.
 - **스킨 설정 키 네임스페이스**: 원본과 동일하게 `skin.liberty.*` 를 그대로 사용합니다(`jeoriga-liberty` 브랜치와의 차이점).
 
-<<<<<<< HEAD
-## 원작
-[Liberty Skin](https://github.com/librewiki/liberty-skin) Made by [Librewiki](https://librewiki.net/)
-=======
 ## 원본(Upstream) 출처
 
 | 항목 | 값 |
@@ -54,7 +46,7 @@ the seed의 Liberty 스킨을 the tree 엔진에서 사용할 수 있게 포팅�
 - 라이선스 전문: 저장소의 [`LICENSE`](./LICENSE) 파일 (원본 라이선스 파일을 그대로 보존)
 - GNU 공식 원문: <https://www.gnu.org/licenses/gpl-3.0.html>
 
-```
+```text
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -127,4 +119,3 @@ PR 환영합니다. 라이선스 위반 의심 사항이나 GPL 관련 문의는
 > by **wjdgustn**, distributed under **GPL-3.0-or-later**. Modifications and modification dates
 > are summarized in the *Modifications* section above, in accordance with GPL-3.0 §5(a)(b)(c).
 > Full license text: [`LICENSE`](./LICENSE) / <https://www.gnu.org/licenses/gpl-3.0.html>.
->>>>>>> a38b795 (Update README, CSS, and layout)
