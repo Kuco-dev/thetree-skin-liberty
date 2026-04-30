@@ -23,6 +23,7 @@
 - **드롭다운 메뉴 정렬 변경**: `파일 올리기` 항목을 메뉴 상단에서 `RandomPage`와 `라이선스` 사이로 이동.
 - **`@keyframes name-gradient` CSS 추가**: 닉네임/로고 텍스트 등에 그라디언트 흐름 애니메이션을 적용하기 위한 키프레임 정의(`css/default.css` 끝).
 - **`--liberty-navbar-logo-image` fallback 단순화**: `wiki.logo_url` 가드(`&&`)를 제거하여 코드 단순화.
+- **상단 네비게이션 바에 "랭킹" 외부 링크 추가**: `최근 변경` 좌측에 `https://rank.kemonofantasy.world` 로 연결되는 외부 링크 아이템(`fa fa-trophy`) 추가. `target="_blank" rel="noopener noreferrer"` 적용.
 
 ## 원본(Upstream) 출처
 
@@ -73,6 +74,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 | 2026-04-30 | `layout.vue` | 수정 | 드롭다운 메뉴의 `파일 올리기` 위치 이동(상단 → 메뉴 끝쪽). `dropdown-divider` 1개 제거. |
 | 2026-04-30 | `layout.vue` | 수정 | `--liberty-navbar-logo-image` 의 `wiki.logo_url` 가드(`&&`) 제거. |
 | 2026-04-30 | `css/default.css` | 추가 | `@keyframes name-gradient { 0%/50%/100% background-position-x }` 정의 12줄 추가. |
+| 2026-05-07 | `README.md` | 수정 | 미해결 git merge conflict 마커(`<<<<<<< HEAD` / `=======` / `>>>>>>> d071cbc` / `>>>>>>> a38b795`) 일괄 제거. `jeoriga-liberty` 분기 측 내용으로 통합. |
+| 2026-05-07 | `layout.vue` | 수정 | 미해결 git merge conflict 마커(`<<<<<<< HEAD` / `=======` / `>>>>>>> d071cbc`) 제거. `notfound-watermark` 의 `src` 를 `/jeoriga.png` 로 확정. |
+| 2026-05-07 | `layout.vue` | 추가 | 상단 네비게이션 바 `최근 변경` 좌측에 외부 링크 `<li>` 추가. `https://rank.kemonofantasy.world` 로 연결되는 "랭킹" 항목(`fa fa-trophy`, `target="_blank" rel="noopener noreferrer"`). |
 
 폰트(`fonts/`) / 이미지 / `LICENSE` / `.editorconfig` / `.gitignore` / `components/` / `layouts/` / `css/` 의 다른 파일 / `bootstrap.min.css` / `font-awesome.min.css` 등은 **원본과 동일** 합니다.
 
@@ -96,7 +100,16 @@ skin.liberty.navbar_logo_padding       → skin.jeoriga-liberty.navbar_logo_padd
 skin.liberty.navbar_logo_margin        → skin.jeoriga-liberty.navbar_logo_margin
 ```
 
+## 외부 자산 의존
 
+본 브랜치의 코드가 참조하는 정적 파일은 다음과 같습니다. 저장소에 포함되어 있지 않으므로 배포 환경에서 별도로 제공해야 합니다.
+
+- `/jeoriga.png` (실제 워터마크로 사용)
+- `/notfound1.png`, `/notfound2.png` (코드에 변수만 남아 있고 실제 src 로는 사용되지 않음 / 데드 코드. 정리 시 함께 제거 권장)
+
+본 브랜치의 코드가 참조하는 외부(원격) 엔드포인트는 다음과 같습니다. 본 저장소가 운영하지 않으며, 가용성/콘텐츠/보안 정책은 해당 도메인 운영자 책임입니다.
+
+- `https://rank.kemonofantasy.world` (상단 네비게이션 "랭킹" 링크의 대상 URL)
 
 ## 수정자 정보
 
@@ -105,13 +118,13 @@ skin.liberty.navbar_logo_margin        → skin.jeoriga-liberty.navbar_logo_marg
 | 수정자 | **KucoSang** |
 | 연락처 | <kucosang@gmail.com> |
 | 본 fork 시작일 | 2026-04-30 |
-| 최근 갱신일 | 2026-04-30 |
+| 최근 갱신일 | 2026-05-07 |
 
 ## 원본과의 관계
 
 - 본 저장소는 GitHub 의 fork 기능으로 `wjdgustn/thetree-skin-liberty` 를 포크한 것이며, GitHub 상단에 fork 관계가 표시됩니다.
 - 본 브랜치(`jeoriga-liberty`)는 그 fork 의 `master` 브랜치(=upstream 추적 브랜치) 에서 분기하여 추가 수정을 적용한 작업 브랜치입니다.
-- 변경 사실/일자는 위 §"수정 사항" 표 및 git 커밋 메시지 트레일러(`Original-Source:`, `Modified-By:`, `Modified-Date:`, `License: GPL-3.0-or-later`)에 명시됩니다. 
+- 변경 사실/일자는 위 §"수정 사항" 표 및 git 커밋 메시지 트레일러(`Original-Source:`, `Modified-By:`, `Modified-Date:`, `License: GPL-3.0-or-later`)에 명시됩니다.
 - upstream 의 변경 사항을 가져올 때는 `master` 브랜치에서 sync 후 본 브랜치로 merge 하고, 머지 커밋에 `Upstream-Commit:` 트레일러를 갱신해 둡니다.
 
 ## 설치 / 사용 방법
