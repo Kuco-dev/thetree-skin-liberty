@@ -96,12 +96,7 @@ skin.liberty.navbar_logo_padding       → skin.jeoriga-liberty.navbar_logo_padd
 skin.liberty.navbar_logo_margin        → skin.jeoriga-liberty.navbar_logo_margin
 ```
 
-## 외부 자산 의존
 
-본 브랜치의 코드가 참조하는 정적 파일은 다음과 같습니다. 저장소에 포함되어 있지 않으므로 배포 환경에서 별도로 제공해야 합니다.
-
-- `/jeoriga.png` (실제 워터마크로 사용)
-- `/notfound1.png`, `/notfound2.png` (코드에 변수만 남아 있고 실제 src 로는 사용되지 않음 / 데드 코드. 정리 시 함께 제거 권장)
 
 ## 수정자 정보
 
