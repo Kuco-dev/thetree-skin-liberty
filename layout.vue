@@ -201,6 +201,7 @@ import Dropdown from './components/dropdown';
 import SettingModal from './components/settingModal';
 import License from "raw-loader!./LICENSE";
 
+
 export default {
     mixins: [Common],
     components: {
@@ -219,9 +220,19 @@ export default {
         };
     },
     watch: {
+	'$store.state.page.viewName'(newVal) {
+	    console.log('🔍 watch triggered:', newVal)
+            this.$nextTick(() => this.updateNotFoundImage(newVal))
+        },
         $route() {
             this.isShowACLMessage = false;
         }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            // 초기 페이지 로드 시에도 실행되도록
+            this.updateNotFoundImage(this.$store.state.page.viewName)
+      })
     },
     head() {
         return {
@@ -256,6 +267,37 @@ export default {
         }
     },
     methods: {
+	updateNotFoundImage(viewName) {
+            const article = document.querySelector('.wiki-article')
+            const existing = document.querySelector('#notfound-watermark')
+
+            if (existing) existing.remove()
+
+            if (viewName === 'notfound' && article) {
+		article.style.position = 'relative';
+		article.style.height = '400px';
+                const count = 2 // notfound 이미지 개수
+                const randomNum = Math.floor(Math.random() * count) + 1
+                const randomSrc = `/notfound${randomNum}.png`
+                const alertBox = article.querySelector('.thetree-alert')
+		let imgElement = `<img id="notfound-watermark"
+                       src="${randomSrc}"
+                       style="width: 300px; opacity: 0.4; right: 0px; padding-right: 10px; margin-right: 20px; z-index: 0; position: absolute; pointer-events:none;">`
+	        if (alertBox) {
+		    alertBox.insertAdjacentHTML(                                                                                               'afterend',
+                      imgElement
+                    )
+		} else {
+                    article.insertAdjacentHTML(
+                      'afterbegin',
+		      imgElement
+                    )
+		}
+	    } else {
+		    article.style.position = '';
+		    article.style.height = '';
+	    }
+        },
         showEditMessage() {
             if (this.isShowACLMessage) {
                 this.$router.push(this.doc_action_link(this.$store.state.page.data.document, this.requestable ? 'new_edit_request' : 'edit'));
