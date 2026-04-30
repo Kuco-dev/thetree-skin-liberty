@@ -89,7 +89,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 | 수정자 | **KucoSang** |
 | 연락처 | <kucosang@gmail.com> |
 | 본 fork 시작일 | 2026-04-30 |
-| 최근 갱신일 | 2026-04-30 |
+| 최근 갱신일 | 2026-05-01 |
 
 ## 원본과의 관계
 
