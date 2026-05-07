@@ -6,6 +6,9 @@
                 <nuxt-link class="navbar-brand" to="/">{{ $store.state.config['skin.liberty.navbar_logo_text'] }}</nuxt-link>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" href="https://rank.kemonofantasy.world" target="_blank" rel="noopener noreferrer"><span class="fa fa-trophy"></span><span class="hide-title">랭킹</span></a>
+                    </li>
+                    <li class="nav-item">
                         <nuxt-link class="nav-link" to="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></nuxt-link>
                     </li>
                     <li class="nav-item">

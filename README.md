@@ -20,6 +20,7 @@
 
 - **404(notfound) 페이지 워터마크**: 존재하지 않는 문서에 진입했을 때 `.wiki-article` 영역에 워터마크 이미지를 자동 표시. `/notfound1.png` 또는 `/notfound2.png` 중에서 매번 랜덤 선택.
 - **드롭다운 메뉴 정렬 변경**: `파일 올리기` 항목을 메뉴 상단에서 `RandomPage`와 `라이선스` 사이로 이동.
+- **상단 네비게이션 `랭킹` 바로가기 추가**: `최근 변경` 왼쪽에 외부 사이트 `https://rank.kemonofantasy.world` 로 이동하는 메뉴 항목 추가(`target="_blank"`, `rel="noopener noreferrer"`). 아이콘은 기존 Font Awesome 4.4.0(`fa fa-trophy`) 사용.
 - **`@keyframes name-gradient` CSS 추가**: 닉네임/로고 텍스트 등에 그라디언트 흐름 애니메이션을 적용하기 위한 키프레임 정의(`css/default.css` 끝).
 - **`--liberty-navbar-logo-image` fallback 단순화**: `wiki.logo_url` 가드(`&&`)를 제거하여 코드 단순화.
 - **스킨 설정 키 네임스페이스**: 원본과 동일하게 `skin.liberty.*` 를 그대로 사용합니다(`jeoriga-liberty` 브랜치와의 차이점).
@@ -72,6 +73,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 | 2026-04-30 | `layout.vue` | 수정 | 드롭다운 메뉴의 `파일 올리기` 위치 이동(상단 → 메뉴 끝쪽). `dropdown-divider` 1개 제거. |
 | 2026-04-30 | `layout.vue` | 수정 | `--liberty-navbar-logo-image` 의 `wiki.logo_url` 가드(`&&`) 제거. |
 | 2026-04-30 | `css/default.css` | 추가 | `@keyframes name-gradient { 0%/50%/100% background-position-x }` 정의 12줄 추가. |
+| 2026-05-07 | `layout.vue` | 추가 | 상단 네비게이션 `최근 변경` 왼쪽에 `랭킹` 바로가기 `<li>` 추가 (외부 링크 `https://rank.kemonofantasy.world`, `target="_blank" rel="noopener noreferrer"`, 아이콘 `fa fa-trophy`). |
+| 2026-05-07 | `README.md` | 수정 | `랭킹` 메뉴 추가 항목을 §개요 / §수정 사항 표에 반영. 최근 갱신일 갱신. |
 
 폰트(`fonts/`) / 이미지 / `LICENSE` / `.editorconfig` / `.gitignore` / `components/` / `layouts/` / `css/` 의 다른 파일 / `bootstrap.min.css` / `font-awesome.min.css` 등은 **원본과 동일** 합니다.
 
@@ -82,7 +85,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 | 수정자 | **KucoSang** |
 | 연락처 | <kucosang@gmail.com> |
 | 본 fork 시작일 | 2026-04-30 |
-| 최근 갱신일 | 2026-05-01 |
+| 최근 갱신일 | 2026-05-07 |
 
 ## 원본과의 관계
 
