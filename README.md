@@ -47,7 +47,7 @@
 - 라이선스 전문: 저장소의 [`LICENSE`](./LICENSE) 파일 (원본 라이선스 파일을 그대로 보존)
 - GNU 공식 원문: <https://www.gnu.org/licenses/gpl-3.0.html>
 
-```text
+```
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -74,8 +74,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 | 2026-04-30 | `layout.vue` | 수정 | 드롭다운 메뉴의 `파일 올리기` 위치 이동(상단 → 메뉴 끝쪽). `dropdown-divider` 1개 제거. |
 | 2026-04-30 | `layout.vue` | 수정 | `--liberty-navbar-logo-image` 의 `wiki.logo_url` 가드(`&&`) 제거. |
 | 2026-04-30 | `css/default.css` | 추가 | `@keyframes name-gradient { 0%/50%/100% background-position-x }` 정의 12줄 추가. |
-| 2026-05-07 | `README.md` | 수정 | 미해결 git merge conflict 마커(`<<<<<<< HEAD` / `=======` / `>>>>>>> d071cbc` / `>>>>>>> a38b795`) 일괄 제거. `jeoriga-liberty` 분기 측 내용으로 통합. |
-| 2026-05-07 | `layout.vue` | 수정 | 미해결 git merge conflict 마커(`<<<<<<< HEAD` / `=======` / `>>>>>>> d071cbc`) 제거. `notfound-watermark` 의 `src` 를 `/jeoriga.png` 로 확정. |
+| 2026-05-07 | `README.md` | 수정 | 미해결 git merge conflict 마커(`<<<<<<< HEAD` / `=======` / `>>>>>>> d071cbc` / `>>>>>>> a38b795` / `>>>>>>> f0e95db` / `>>>>>>> 235d006`) 일괄 제거. `jeoriga-liberty` 분기 측 내용으로 통합. |
+| 2026-05-07 | `layout.vue` | 수정 | 미해결 git merge conflict 마커(`<<<<<<< HEAD` / `=======` / `>>>>>>> d071cbc` / `>>>>>>> 8a7340c` / `>>>>>>> 235d006`) 제거. `notfound-watermark` 의 `src` 를 `/jeoriga.png` 로 확정. footer Github 링크를 `tree/jeoriga-liberty` 로 확정. |
 | 2026-05-07 | `layout.vue` | 추가 | 상단 네비게이션 바 `최근 변경` 좌측에 외부 링크 `<li>` 추가. `https://rank.kemonofantasy.world` 로 연결되는 "랭킹" 항목(`fa fa-trophy`, `target="_blank" rel="noopener noreferrer"`). |
 
 폰트(`fonts/`) / 이미지 / `LICENSE` / `.editorconfig` / `.gitignore` / `components/` / `layouts/` / `css/` 의 다른 파일 / `bootstrap.min.css` / `font-awesome.min.css` 등은 **원본과 동일** 합니다.
