@@ -29,13 +29,13 @@
 
 | 항목 | 값 |
 |---|---|
-| 원작자 | **wjdgustn** — <https://github.com/wjdgustn> |
+| 최초 원작자 | **Liberty LLC.** — Copyright (C) 2016 Liberty LLC. ([Liberty-MW-Skin](https://gitlab.com/librewiki/Liberty-MW-Skin)) |
+| thetree 포팅 저자 | **wjdgustn** — <https://github.com/wjdgustn> |
 | 원본 저장소 | <https://github.com/wjdgustn/thetree-skin-liberty> |
 | 본 저장소(GitHub fork) | <https://github.com/Kuco-dev/thetree-skin-liberty> |
 | Fork 베이스 브랜치 | `master` (upstream 의 기본 브랜치) |
 | 본 작업 브랜치 | `jeoriga-liberty` |
 | 사용 엔진 | [the tree](https://github.com/wjdgustn/thetree) |
-| Liberty Skin 의 원조 | [Librewiki / Liberty-MW-Skin](https://gitlab.com/librewiki/Liberty-MW-Skin) — Copyright (C) 2016 Liberty LLC. |
 
 수정되지 않은 원본 코드는 위 원본 저장소 또는 본 fork 의 `master` 브랜치(upstream 추적용)에서 그대로 받을 수 있습니다.
 
@@ -138,8 +138,8 @@ PR 환영합니다. 라이선스 위반 의심 사항이나 GPL 관련 문의는
 
 ## Acknowledgements
 
-- 원작자 **wjdgustn** — `thetree-skin-liberty` 및 `the tree` 엔진의 저자.
-- **Librewiki / Liberty LLC.** — Liberty-MW-Skin 의 원조 저작권자 (Copyright (C) 2016 Liberty LLC.). <https://librewiki.net/>
+- **Liberty LLC.** — Liberty-MW-Skin 의 최초 원작자 (Copyright (C) 2016 Liberty LLC.). <https://librewiki.net/>
+- **wjdgustn** — `thetree-skin-liberty` (thetree 엔진 포팅) 및 `the tree` 엔진의 저자.
 - 본 fork 의 기여자 목록은 git history (`git log`) 에서 확인할 수 있습니다.
 
 ---
